@@ -328,7 +328,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Evidence Coverage",
             "before": f"{before_coverage_pct}%",
             "after": f"{after_coverage_pct}%",
-            "color": "#4F83F1",
+            "color": "#64748B",
             "before_text": "Coverage based on reusable historical artifacts before vendor response.",
             "after_text": "Coverage after applying newly uploaded vendor artifacts.",
         },
@@ -336,7 +336,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Reusable Evidence",
             "before": str(before_reusable),
             "after": str(after_reusable),
-            "color": "#58C27D",
+            "color": "#64748B",
             "before_text": "Reusable or already-resolved artifacts available before upload.",
             "after_text": "Reusable or resolved artifacts after vendor artifact intake.",
         },
@@ -344,7 +344,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Outstanding Requests",
             "before": str(before_requests),
             "after": str(after_requests),
-            "color": "#F5B041",
+            "color": "#64748B",
             "before_text": "Artifacts requiring request before vendor response.",
             "after_text": "Remaining artifacts still requiring vendor follow-up.",
         },
@@ -352,7 +352,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Expired / Expiring",
             "before": str(before_expired_expiring),
             "after": str(after_expired_expiring),
-            "color": "#E57373",
+            "color": "#64748B",
             "before_text": "Artifacts that were stale, expired, or approaching refresh.",
             "after_text": "Stale or expiring artifacts remaining after upload.",
         },
@@ -475,7 +475,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
         }}
 
         .ba-arrow {{
-            opacity: 0.75;
+            opacity: 0.9;
             font-size: 1.6rem;
             padding: 0 8px;
         }}
