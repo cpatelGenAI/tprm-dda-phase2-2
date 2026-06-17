@@ -328,7 +328,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Evidence Coverage",
             "before": f"{before_coverage_pct}%",
             "after": f"{after_coverage_pct}%",
-            "color": "#35B8C8",
+            "color": "#4F83F1",
             "before_text": "Coverage based on reusable historical artifacts before vendor response.",
             "after_text": "Coverage after applying newly uploaded vendor artifacts.",
         },
@@ -344,7 +344,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Outstanding Requests",
             "before": str(before_requests),
             "after": str(after_requests),
-            "color": "#4F83F1",
+            "color": "#F5B041",
             "before_text": "Artifacts requiring request before vendor response.",
             "after_text": "Remaining artifacts still requiring vendor follow-up.",
         },
@@ -352,7 +352,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
             "label": "Expired / Expiring",
             "before": str(before_expired_expiring),
             "after": str(after_expired_expiring),
-            "color": "#F5B041",
+            "color": "#E57373",
             "before_text": "Artifacts that were stale, expired, or approaching refresh.",
             "after_text": "Stale or expiring artifacts remaining after upload.",
         },
@@ -391,7 +391,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
 
         .ba-title {{
             text-align: center;
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: #1f2430;
             margin-bottom: 18px;
@@ -407,23 +407,23 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
         }}
 
         .ba-header-box {{
-            background: #ffffff;
+            background: #f8fafc;
             border: 1px solid #e5e7eb;
-            border-radius: 18px;
+            border-radius: 16px;
             padding: 14px 18px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+            box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
             font-weight: 800;
             color: #1f2430;
         }}
 
         .ba-center-header {{
-            background: #f8fafc;
+            background: #ffffff;
             border: 1px solid #e5e7eb;
-            border-radius: 18px;
+            border-radius: 16px;
             padding: 14px 18px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(16, 24, 40, 0.05);
+            box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
             font-weight: 800;
             color: #1f2430;
         }}
@@ -464,14 +464,14 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
 
         .ba-band {{
             color: #ffffff;
-            height: 58px;
-            border-radius: 6px;
+            height: 54px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: space-around;
-            font-size: 1.35rem;
-            font-weight: 850;
-            box-shadow: 0 8px 18px rgba(16, 24, 40, 0.12);
+            font-size: 1.25rem;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(16, 24, 40, 0.10);
         }}
 
         .ba-arrow {{
@@ -482,11 +482,11 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
     </style>
 
     <div class="ba-wrapper">
-        <div class="ba-title">Before / After Coverage Impact</div>
+        <div class="ba-title">Vendor Artifact Intake Impact</div>
 
         <div class="ba-header">
             <div class="ba-header-box">Before Vendor Upload</div>
-            <div class="ba-center-header">Coverage Change</div>
+            <div class="ba-center-header">Coverage Impact</div>
             <div class="ba-header-box">After Vendor Upload</div>
         </div>
 
@@ -828,9 +828,9 @@ with tab_action:
             st.rerun()
 
         st.divider()
-        st.markdown("#### Before / After Coverage")
+        st.markdown("#### Vendor Artifact Intake Impact")
         st.caption(
-            "Shows how vendor artifact intake changes evidence coverage, reusable artifacts, and remaining request volume."
+            "Shows how vendor-provided artifacts change evidence coverage, reusable evidence, and remaining request volume."
         )
 
         before_cov, before_art = build_coverage(
