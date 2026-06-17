@@ -508,7 +508,7 @@ with tab_overview:
             st.markdown('</div>', unsafe_allow_html=True)
 
         st.write("")
-        st.markdown("#### Plain-English coverage summaries")
+        st.markdown("#### Coverage summaries")
         for _, row in coverage.iterrows():
             box_class = "success-box" if int(row["net_new_or_updated_artifacts"]) == 0 else "warn-box"
             st.markdown(f'<div class="{box_class}">{build_dda_summary(row)}</div>', unsafe_allow_html=True)
@@ -617,7 +617,7 @@ with tab_qa:
         "What changed after the vendor uploaded new artifacts?",
     ]
     selected_example = st.selectbox("Try an example question", [""] + examples)
-    user_q = st.text_input("Ask a question in plain English", value=selected_example)
+    user_q = st.text_input("Ask a question", value=selected_example)
 
     if st.button("Ask Agent") and user_q.strip():
         context = build_context_packet(coverage, artifact_status, lexis_filtered, open_artifacts, abbrev_text)
