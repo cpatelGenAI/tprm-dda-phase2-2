@@ -388,7 +388,7 @@ if "vendor_email_generated" not in st.session_state:
 # Header
 # -------------------------------
 st.markdown('<div class="section-kicker">Phase 2 Demo</div>', unsafe_allow_html=True)
-st.title("Artifact-centered DDA coverage, abbreviated request, and Risk Advisor Q&A")
+st.title("DDA Evidence Reuse & Risk Advisor Workflow")
 st.markdown(
     """
 <div class="muted">
