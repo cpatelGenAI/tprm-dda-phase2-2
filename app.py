@@ -238,7 +238,7 @@ def render_stacked_coverage_chart(coverage: pd.DataFrame):
     row_height = 46
     label_width = 210
     bar_width = 660
-    chart_height = 80 + row_height * len(coverage)
+    chart_height = 40 + row_height * len(coverage)
     svg_font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 
     parts = [
@@ -248,7 +248,7 @@ def render_stacked_coverage_chart(coverage: pd.DataFrame):
              style="font-family: {svg_font};">
         ''',
     ]
-    y = 78
+    y = 38
     for _, r in coverage.iterrows():
         total = max(int(r["triggered_questions"]), 1)
         reuse = int(r["questions_supported_by_reuse"])
@@ -260,9 +260,9 @@ def render_stacked_coverage_chart(coverage: pd.DataFrame):
         missing_w = min(bar_width - reuse_w - stale_w, int((missing / total) * bar_width))
         parts.append(f'<text x="0" y="{y+18}" font-size="13" font-weight="700" fill="#374151">{r["domain"]}</text>')
         parts.append(f'<rect x="{label_width}" y="{y}" width="{bar_width}" height="24" fill="#f3f4f6" rx="8"/>')
-        parts.append(f'<rect x="{label_width}" y="{y}" width="{reuse_w}" height="24" fill="#2563eb" rx="8"/>')
-        parts.append(f'<rect x="{label_width + reuse_w}" y="{y}" width="{stale_w}" height="24" fill="#f59e0b"/>')
-        parts.append(f'<rect x="{label_width + reuse_w + stale_w}" y="{y}" width="{missing_w}" height="24" fill="#ef4444"/>')
+        parts.append(f'<rect x="{label_width}" y="{y}" width="{reuse_w}" height="24" fill="#4F83F1" rx="8"/>')
+        parts.append(f'<rect x="{label_width + reuse_w}" y="{y}" width="{stale_w}" height="24" fill="#F5B041"/>')
+        parts.append(f'<rect x="{label_width + reuse_w + stale_w}" y="{y}" width="{missing_w}" height="24" fill="#E57373"/>')
         parts.append(f'<text x="{label_width + bar_width + 16}" y="{y+17}" font-size="12" fill="#374151">{reuse}/{total} reusable-supported</text>')
         y += row_height
     parts.append('</svg>')
@@ -276,7 +276,12 @@ def render_vertical_artifact_chart(coverage: pd.DataFrame):
         "Expired": int(coverage["expired_artifacts"].sum()),
         "Missing": int(coverage["missing_artifacts"].sum()),
     }
-    colors = {"Reusable": "#2563eb", "Expiring": "#22c55e", "Expired": "#f59e0b", "Missing": "#ef4444"}
+    colors = {
+    "Reusable": "#4F83F1",
+    "Expiring": "#58C27D",
+    "Expired": "#F5B041",
+    "Missing": "#E57373",
+    }
     max_val = max(max(totals.values()), 1)
     chart_width, chart_height = 540, 280
     baseline, max_bar_h, bar_w, gap, left = 210, 160, 70, 45, 55
@@ -288,7 +293,6 @@ def render_vertical_artifact_chart(coverage: pd.DataFrame):
              xmlns="http://www.w3.org/2000/svg"
              style="font-family: {svg_font};">
         ''',
-        '<text x="0" y="22" font-size="16" font-weight="700" fill="#1f2430">Artifact Status Distribution</text>',
         f'<line x1="35" y1="{baseline}" x2="{chart_width-30}" y2="{baseline}" stroke="#d1d5db"/>',
     ]
     for i, (label, val) in enumerate(totals.items()):
