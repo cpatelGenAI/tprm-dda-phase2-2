@@ -392,8 +392,7 @@ st.title("TPRM Evidence Reuse Assistant")
 st.markdown(
     """
 <div class="muted">
-This app demonstrates how a TPRM agent can reuse historical Archer DDA evidence, evaluate artifact freshness, identify LexisNexis-style vendor/entity matches, generate an abbreviated artifact request, and support Risk Advisor Q&A.
-</div>
+Reuse prior artifacts, identify evidence gaps, and generate targeted vendor requests for Risk Advisor review.</div>
 """,
     unsafe_allow_html=True,
 )
