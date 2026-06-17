@@ -494,8 +494,7 @@ def render_before_after_template(before_art, after_art, before_cov, after_cov):
     </div>
     """
 
-    st.markdown(html, unsafe_allow_html=True)
-
+    components.html(html, height=720, scrolling=False)
 
 def build_context_packet(coverage, artifacts, lexis, open_artifacts, abbreviated_request):
     lines = ["You are a TPRM Risk Advisor assistant. Answer only from this context.", ""]
