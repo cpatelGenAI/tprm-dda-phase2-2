@@ -1,0 +1,22 @@
+vendor,dda_name,domain,completed_date,total_questions,historically_answered_questions,artifact_count,car_rating,dda_status
+Contoso AI Services,InfoSec DDA,InfoSec,2026-02-12,42,39,5,Effective,Completed
+Contoso AI Services,Model Risk DDA,Model Risk,2025-12-08,38,31,3,Needs Improvement,Completed
+Contoso AI Services,Regulatory DDA,Regulatory,2026-01-20,27,24,3,Effective,Completed
+Contoso AI Services,Reputation DDA,Reputation,2025-11-03,19,15,2,Needs Improvement,Completed
+Contoso AI Services,Finance DDA,Finance,2025-10-15,24,18,2,Needs Improvement,Completed
+Contoso AI Services,Business Resiliency DDA,Business Resiliency,2025-08-21,31,22,2,Ineffective,Completed
+Contoso AI Services,Operational DDA,Operational,2026-03-11,29,27,4,Effective,Completed
+Northwind Data Cloud,InfoSec DDA,InfoSec,2025-11-14,42,39,5,Effective,Completed
+Northwind Data Cloud,Model Risk DDA,Model Risk,2025-09-09,38,31,3,Needs Improvement,Completed
+Northwind Data Cloud,Regulatory DDA,Regulatory,2025-10-22,27,24,3,Effective,Completed
+Northwind Data Cloud,Reputation DDA,Reputation,2025-08-05,19,15,2,Needs Improvement,Completed
+Northwind Data Cloud,Finance DDA,Finance,2025-07-17,24,18,2,Needs Improvement,Completed
+Northwind Data Cloud,Business Resiliency DDA,Business Resiliency,2025-05-23,31,22,2,Ineffective,Completed
+Northwind Data Cloud,Operational DDA,Operational,2025-12-11,29,27,4,Effective,Completed
+Fabrikam Workflow AI,InfoSec DDA,InfoSec,2025-09-15,42,39,5,Needs Improvement,Completed
+Fabrikam Workflow AI,Model Risk DDA,Model Risk,2025-07-11,38,31,3,Effective,Completed
+Fabrikam Workflow AI,Regulatory DDA,Regulatory,2025-08-23,27,24,3,Needs Improvement,Completed
+Fabrikam Workflow AI,Reputation DDA,Reputation,2025-06-06,19,15,2,Effective,Completed
+Fabrikam Workflow AI,Finance DDA,Finance,2025-05-18,24,18,2,Effective,Completed
+Fabrikam Workflow AI,Business Resiliency DDA,Business Resiliency,2025-03-24,31,22,2,Ineffective,Completed
+Fabrikam Workflow AI,Operational DDA,Operational,2025-10-12,29,27,4,Needs Improvement,Completed

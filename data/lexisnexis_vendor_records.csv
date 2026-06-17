@@ -1,0 +1,14 @@
+record_id,vendor_name_observed,canonical_vendor_name,source,match_score,risk_signal,notes
+LN-001,Contoso AI Services,Contoso AI Services,LexisNexis-style Entity Match,0.97,Primary match,Exact name match on vendor record
+LN-002,Contoso AI,Contoso AI Services,LexisNexis-style Entity Match,0.89,Possible duplicate,Shortened name may refer to same entity
+LN-003,Contoso Cloud AI,Contoso AI Services,LexisNexis-style Entity Match,0.84,Possible product/entity alias,Product-branded record may refer to same third party
+LN-004,Contoso Analytics LLC,Contoso AI Services,LexisNexis-style Entity Match,0.76,Related entity review required,Potential subsidiary or unrelated firm requires Risk Advisor confirmation
+LN-005,Contoso Manufacturing Inc,Contoso AI Services,LexisNexis-style Entity Match,0.41,Low confidence,Weak match likely unrelated entity
+LN-NO001,Northwind Data Cloud,Northwind Data Cloud,LexisNexis-style Entity Match,0.96,Primary match,Synthetic alternate entity/name record for demo matching review
+LN-NO002,Northwind Cloud,Northwind Data Cloud,LexisNexis-style Entity Match,0.88,Possible duplicate,Synthetic alternate entity/name record for demo matching review
+LN-NO003,NW Data AI,Northwind Data Cloud,LexisNexis-style Entity Match,0.81,Possible product/entity alias,Synthetic alternate entity/name record for demo matching review
+LN-NO004,Northwind Analytics,Northwind Data Cloud,LexisNexis-style Entity Match,0.74,Related entity review required,Synthetic alternate entity/name record for demo matching review
+LN-FA001,Fabrikam Workflow AI,Fabrikam Workflow AI,LexisNexis-style Entity Match,0.96,Primary match,Synthetic alternate entity/name record for demo matching review
+LN-FA002,Fabrikam AI,Fabrikam Workflow AI,LexisNexis-style Entity Match,0.88,Possible duplicate,Synthetic alternate entity/name record for demo matching review
+LN-FA003,Fabrikam Workflow,Fabrikam Workflow AI,LexisNexis-style Entity Match,0.81,Possible product/entity alias,Synthetic alternate entity/name record for demo matching review
+LN-FA004,Fabrikam Automation LLC,Fabrikam Workflow AI,LexisNexis-style Entity Match,0.74,Related entity review required,Synthetic alternate entity/name record for demo matching review

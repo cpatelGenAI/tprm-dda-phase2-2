@@ -1,0 +1,13 @@
+vendor,artifact_id,artifact_name,artifact_type,domain,received_date,questions_supported,evidence_summary
+Contoso AI Services,ART-MRM-002,Model Validation Report,Validation Report,Model Risk,2026-06-10,15,Updated model validation report confirms independent validation testing limitations monitoring and remediation tracking.
+Contoso AI Services,ART-MRM-003,AI ML Inventory Export,Inventory,Model Risk,2026-06-10,8,Current AI ML inventory identifies AI-enabled services ownership model classification and risk tier.
+Contoso AI Services,ART-BR-002,BCP DR Test Results,Test Evidence,Business Resiliency,2026-06-11,10,Current BCP DR test results document RTO RPO test completion and remediation of prior exercise findings.
+Contoso AI Services,ART-FIN-002,Financial Health Monitoring Summary,Monitoring Report,Finance,2026-06-09,6,Updated financial monitoring summary provides current liquidity and financial risk trend assessment.
+Northwind Data Cloud,ART-NW-MRM-002,Model Validation Report,Validation Report,Model Risk,2026-03-12,15,Updated model validation report confirms independent validation testing limitations monitoring and remediation tracking.
+Northwind Data Cloud,ART-NW-MRM-003,AI ML Inventory Export,Inventory,Model Risk,2026-03-12,8,Current AI ML inventory identifies AI-enabled services ownership model classification and risk tier.
+Northwind Data Cloud,ART-NW-BR-002,BCP DR Test Results,Test Evidence,Business Resiliency,2026-03-13,10,Current BCP DR test results document RTO RPO test completion and remediation of prior exercise findings.
+Northwind Data Cloud,ART-NW-FIN-002,Financial Health Monitoring Summary,Monitoring Report,Finance,2026-03-11,6,Updated financial monitoring summary provides current liquidity and financial risk trend assessment.
+Fabrikam Workflow AI,ART-FB-MRM-002,Model Validation Report,Validation Report,Model Risk,2026-01-11,15,Updated model validation report confirms independent validation testing limitations monitoring and remediation tracking.
+Fabrikam Workflow AI,ART-FB-MRM-003,AI ML Inventory Export,Inventory,Model Risk,2026-01-11,8,Current AI ML inventory identifies AI-enabled services ownership model classification and risk tier.
+Fabrikam Workflow AI,ART-FB-BR-002,BCP DR Test Results,Test Evidence,Business Resiliency,2026-01-12,10,Current BCP DR test results document RTO RPO test completion and remediation of prior exercise findings.
+Fabrikam Workflow AI,ART-FB-FIN-002,Financial Health Monitoring Summary,Monitoring Report,Finance,2026-01-10,6,Updated financial monitoring summary provides current liquidity and financial risk trend assessment.

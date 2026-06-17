@@ -1,0 +1,16 @@
+source_id,source_name,vendor,domain,artifact_name,evidence_summary,confidence_band
+WEB-001,Vendor Trust Center,Contoso AI Services,InfoSec,SOC 2 Type II Report,Vendor trust center indicates current SOC 2 Type II coverage for core platform controls.,Medium
+WEB-002,Public Policy Page,Contoso AI Services,Model Risk,Model Governance Policy,Public AI policy page describes model oversight human review and monitoring principles.,Medium
+WEB-003,Public Status Page,Contoso AI Services,Operational,Service Level Agreement Summary,Public status page shows service uptime and incident reporting approach.,Medium
+WEB-004,Public Resilience Page,Contoso AI Services,Business Resiliency,Business Continuity Plan,Public resilience page references continuity planning and disaster recovery capabilities.,Low
+WEB-005,Public Company Profile,Contoso AI Services,Finance,Audited Financial Statements,Public profile provides limited financial and ownership information but does not replace audited financial statements.,Low
+WEB-001,Vendor Trust Center,Northwind Data Cloud,InfoSec,SOC 2 Type II Report,Vendor trust center indicates current SOC 2 Type II coverage for core platform controls.,Medium
+WEB-002,Public Policy Page,Northwind Data Cloud,Model Risk,Model Governance Policy,Public AI policy page describes model oversight human review and monitoring principles.,Medium
+WEB-003,Public Status Page,Northwind Data Cloud,Operational,Service Level Agreement Summary,Public status page shows service uptime and incident reporting approach.,Medium
+WEB-004,Public Resilience Page,Northwind Data Cloud,Business Resiliency,Business Continuity Plan,Public resilience page references continuity planning and disaster recovery capabilities.,Low
+WEB-005,Public Company Profile,Northwind Data Cloud,Finance,Audited Financial Statements,Public profile provides limited financial and ownership information but does not replace audited financial statements.,Low
+WEB-001,Vendor Trust Center,Fabrikam Workflow AI,InfoSec,SOC 2 Type II Report,Vendor trust center indicates current SOC 2 Type II coverage for core platform controls.,Medium
+WEB-002,Public Policy Page,Fabrikam Workflow AI,Model Risk,Model Governance Policy,Public AI policy page describes model oversight human review and monitoring principles.,Medium
+WEB-003,Public Status Page,Fabrikam Workflow AI,Operational,Service Level Agreement Summary,Public status page shows service uptime and incident reporting approach.,Medium
+WEB-004,Public Resilience Page,Fabrikam Workflow AI,Business Resiliency,Business Continuity Plan,Public resilience page references continuity planning and disaster recovery capabilities.,Low
+WEB-005,Public Company Profile,Fabrikam Workflow AI,Finance,Audited Financial Statements,Public profile provides limited financial and ownership information but does not replace audited financial statements.,Low

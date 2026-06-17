@@ -1,0 +1,22 @@
+vendor,domain,dda_name,triggered_questions,review_reason
+Contoso AI Services,InfoSec,InfoSec DDA,42,Annual refresh for AI-enabled vendor engagement
+Contoso AI Services,Model Risk,Model Risk DDA,38,AI capabilities identified in IRA and Model Risk questions triggered
+Contoso AI Services,Regulatory,Regulatory DDA,27,Regulated data processing and jurisdictional obligations indicated
+Contoso AI Services,Reputation,Reputation DDA,19,External vendor risk screening required
+Contoso AI Services,Finance,Finance DDA,24,Financial health review required for critical vendor
+Contoso AI Services,Business Resiliency,Business Resiliency DDA,31,Critical business process dependency indicated
+Contoso AI Services,Operational,Operational DDA,29,Operational dependency and fourth-party questions triggered
+Northwind Data Cloud,InfoSec,InfoSec DDA,42,Annual refresh for AI-enabled vendor engagement
+Northwind Data Cloud,Model Risk,Model Risk DDA,38,AI capabilities identified in IRA and Model Risk questions triggered
+Northwind Data Cloud,Regulatory,Regulatory DDA,27,Regulated data processing and jurisdictional obligations indicated
+Northwind Data Cloud,Reputation,Reputation DDA,19,External vendor risk screening required
+Northwind Data Cloud,Finance,Finance DDA,24,Financial health review required for critical vendor
+Northwind Data Cloud,Business Resiliency,Business Resiliency DDA,31,Critical business process dependency indicated
+Northwind Data Cloud,Operational,Operational DDA,29,Operational dependency and fourth-party questions triggered
+Fabrikam Workflow AI,InfoSec,InfoSec DDA,42,Annual refresh for AI-enabled vendor engagement
+Fabrikam Workflow AI,Model Risk,Model Risk DDA,38,AI capabilities identified in IRA and Model Risk questions triggered
+Fabrikam Workflow AI,Regulatory,Regulatory DDA,27,Regulated data processing and jurisdictional obligations indicated
+Fabrikam Workflow AI,Reputation,Reputation DDA,19,External vendor risk screening required
+Fabrikam Workflow AI,Finance,Finance DDA,24,Financial health review required for critical vendor
+Fabrikam Workflow AI,Business Resiliency,Business Resiliency DDA,31,Critical business process dependency indicated
+Fabrikam Workflow AI,Operational,Operational DDA,29,Operational dependency and fourth-party questions triggered
