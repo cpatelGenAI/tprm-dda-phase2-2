@@ -509,12 +509,32 @@ with tab_overview:
         m4.metric("Artifacts Needing Request", open_count)
 
         st.write("")
+        st.write("")
         col1, col2 = st.columns([2, 1])
         
         with col1:
+            st.markdown("#### Question Coverage by Artifact Status")
+            st.caption(
+                "Shows how triggered DDA questions are supported by reusable, stale/expiring, or missing artifacts across each domain."
+            )
+            st.markdown(
+                """
+                <div style="display:flex; gap:18px; align-items:center; margin:8px 0 4px 0; font-size:13px; color:#4b5563;">
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#4F83F1; border-radius:3px; margin-right:6px;"></span>Reusable / Resolved</div>
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#F5B041; border-radius:3px; margin-right:6px;"></span>Stale / Expiring</div>
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#E57373; border-radius:3px; margin-right:6px;"></span>Missing</div>
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#f3f4f6; border-radius:3px; margin-right:6px; border:1px solid #e5e7eb;"></span>Unmapped / Remaining</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
             render_stacked_coverage_chart(coverage)
         
         with col2:
+            st.markdown("#### Artifact Health Summary")
+            st.caption(
+                "Shows the total number of artifacts by current evidence status for the selected vendor and triggered DDA package."
+            )
             render_vertical_artifact_chart(coverage)
 
         st.write("")
