@@ -392,7 +392,7 @@ st.title("Artifact-centered DDA coverage, abbreviated request, and Risk Advisor 
 st.markdown(
     """
 <div class="muted">
-This demo simulates how a TPRM agent can reuse historical Archer DDA evidence, evaluate artifact freshness, identify LexisNexis-style vendor/entity matches, generate an abbreviated artifact request, and support Risk Advisor Q&A. The app uses synthetic data only.
+This app demonstrates how a TPRM agent can reuse historical Archer DDA evidence, evaluate artifact freshness, identify LexisNexis-style vendor/entity matches, generate an abbreviated artifact request, and support Risk Advisor Q&A.
 </div>
 """,
     unsafe_allow_html=True,
