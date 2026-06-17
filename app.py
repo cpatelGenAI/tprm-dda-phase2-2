@@ -305,6 +305,197 @@ def render_vertical_artifact_chart(coverage: pd.DataFrame):
     parts.append('</svg>')
     components.html("".join(parts), height=chart_height)
 
+def render_before_after_template(before_art, after_art, before_cov, after_cov):
+    before_requests = int(before_art["needs_vendor_request"].sum())
+    after_requests = int(after_art["needs_vendor_request"].sum())
+
+    before_reusable = int(before_art["artifact_status"].isin(["Reusable", "Resolved by Upload"]).sum())
+    after_reusable = int(after_art["artifact_status"].isin(["Reusable", "Resolved by Upload"]).sum())
+
+    before_expired_expiring = int(before_art["artifact_status"].isin(["Expired", "Expiring Soon"]).sum())
+    after_expired_expiring = int(after_art["artifact_status"].isin(["Expired", "Expiring Soon"]).sum())
+
+    before_supported = int(before_cov["questions_supported_by_reuse"].sum())
+    after_supported = int(after_cov["questions_supported_by_reuse"].sum())
+
+    total_questions = max(int(before_cov["triggered_questions"].sum()), 1)
+
+    before_coverage_pct = int((before_supported / total_questions) * 100)
+    after_coverage_pct = int((after_supported / total_questions) * 100)
+
+    rows = [
+        {
+            "label": "Evidence Coverage",
+            "before": f"{before_coverage_pct}%",
+            "after": f"{after_coverage_pct}%",
+            "color": "#35B8C8",
+            "before_text": "Coverage based on reusable historical artifacts before vendor response.",
+            "after_text": "Coverage after applying newly uploaded vendor artifacts.",
+        },
+        {
+            "label": "Reusable Evidence",
+            "before": str(before_reusable),
+            "after": str(after_reusable),
+            "color": "#58C27D",
+            "before_text": "Reusable or already-resolved artifacts available before upload.",
+            "after_text": "Reusable or resolved artifacts after vendor artifact intake.",
+        },
+        {
+            "label": "Outstanding Requests",
+            "before": str(before_requests),
+            "after": str(after_requests),
+            "color": "#4F83F1",
+            "before_text": "Artifacts requiring request before vendor response.",
+            "after_text": "Remaining artifacts still requiring vendor follow-up.",
+        },
+        {
+            "label": "Expired / Expiring",
+            "before": str(before_expired_expiring),
+            "after": str(after_expired_expiring),
+            "color": "#F5B041",
+            "before_text": "Artifacts that were stale, expired, or approaching refresh.",
+            "after_text": "Stale or expiring artifacts remaining after upload.",
+        },
+    ]
+
+    row_html = ""
+
+    for r in rows:
+        row_html += f"""
+        <div class="ba-row">
+            <div class="ba-side ba-before">
+                <div class="ba-small-title">{r["label"]}</div>
+                <div class="ba-desc">{r["before_text"]}</div>
+            </div>
+
+            <div class="ba-band" style="background:{r["color"]};">
+                <span>{r["before"]}</span>
+                <span class="ba-arrow">→</span>
+                <span>{r["after"]}</span>
+            </div>
+
+            <div class="ba-side ba-after">
+                <div class="ba-small-title">{r["label"]}</div>
+                <div class="ba-desc">{r["after_text"]}</div>
+            </div>
+        </div>
+        """
+
+    html = f"""
+    <style>
+        .ba-wrapper {{
+            width: 100%;
+            padding: 10px 0 4px 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }}
+
+        .ba-title {{
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #1f2430;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+        }}
+
+        .ba-header {{
+            display: grid;
+            grid-template-columns: 1fr 280px 1fr;
+            gap: 22px;
+            align-items: center;
+            margin-bottom: 12px;
+        }}
+
+        .ba-header-box {{
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 14px 18px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+            font-weight: 800;
+            color: #1f2430;
+        }}
+
+        .ba-center-header {{
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 14px 18px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(16, 24, 40, 0.05);
+            font-weight: 800;
+            color: #1f2430;
+        }}
+
+        .ba-row {{
+            display: grid;
+            grid-template-columns: 1fr 280px 1fr;
+            gap: 22px;
+            align-items: center;
+            margin: 14px 0;
+        }}
+
+        .ba-side {{
+            min-height: 70px;
+            padding: 8px 6px;
+        }}
+
+        .ba-before {{
+            text-align: right;
+        }}
+
+        .ba-after {{
+            text-align: left;
+        }}
+
+        .ba-small-title {{
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #344054;
+            margin-bottom: 5px;
+        }}
+
+        .ba-desc {{
+            font-size: 0.82rem;
+            color: #6b7280;
+            line-height: 1.35;
+        }}
+
+        .ba-band {{
+            color: #ffffff;
+            height: 58px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 1.35rem;
+            font-weight: 850;
+            box-shadow: 0 8px 18px rgba(16, 24, 40, 0.12);
+        }}
+
+        .ba-arrow {{
+            opacity: 0.75;
+            font-size: 1.6rem;
+            padding: 0 8px;
+        }}
+    </style>
+
+    <div class="ba-wrapper">
+        <div class="ba-title">Before / After Coverage Impact</div>
+
+        <div class="ba-header">
+            <div class="ba-header-box">Before Vendor Upload</div>
+            <div class="ba-center-header">Coverage Change</div>
+            <div class="ba-header-box">After Vendor Upload</div>
+        </div>
+
+        {row_html}
+    </div>
+    """
+
+    st.markdown(html, unsafe_allow_html=True)
+
 
 def build_context_packet(coverage, artifacts, lexis, open_artifacts, abbreviated_request):
     lines = ["You are a TPRM Risk Advisor assistant. Answer only from this context.", ""]
@@ -639,15 +830,28 @@ with tab_action:
 
         st.divider()
         st.markdown("#### Before / After Coverage")
-        before_cov, before_art = build_coverage(historical_filtered, artifacts_filtered, triggered_filtered, review_date, pd.DataFrame(columns=sample_upload.columns))
-        after_cov, after_art = build_coverage(historical_filtered, artifacts_filtered, triggered_filtered, review_date, uploaded_for_vendor)
-        compare = pd.DataFrame([
-            {"Metric": "Artifacts needing request", "Before": int(before_art["needs_vendor_request"].sum()), "After": int(after_art["needs_vendor_request"].sum())},
-            {"Metric": "Reusable / resolved artifacts", "Before": int(before_art["artifact_status"].isin(["Reusable", "Resolved by Upload"]).sum()), "After": int(after_art["artifact_status"].isin(["Reusable", "Resolved by Upload"]).sum())},
-            {"Metric": "Expired artifacts", "Before": int(before_art["artifact_status"].eq("Expired").sum()), "After": int(after_art["artifact_status"].eq("Expired").sum())},
-            {"Metric": "Expiring artifacts", "Before": int(before_art["artifact_status"].eq("Expiring Soon").sum()), "After": int(after_art["artifact_status"].eq("Expiring Soon").sum())},
-        ])
-        st.dataframe(compare, use_container_width=True, hide_index=True)
+        st.caption(
+            "Shows how vendor artifact intake changes evidence coverage, reusable artifacts, and remaining request volume."
+        )
+
+        before_cov, before_art = build_coverage(
+            historical_filtered,
+            artifacts_filtered,
+            triggered_filtered,
+            review_date,
+            pd.DataFrame(columns=sample_upload.columns),
+        )
+
+        after_cov, after_art = build_coverage(
+            historical_filtered,
+            artifacts_filtered,
+            triggered_filtered,
+            review_date,
+            uploaded_for_vendor,
+        )
+
+        render_before_after_template(before_art, after_art, before_cov, after_cov)
+
         if int(after_art["needs_vendor_request"].sum()) < int(before_art["needs_vendor_request"].sum()):
             st.success("The uploaded artifact package resolved one or more previously open artifact requests.")
 
