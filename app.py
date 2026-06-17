@@ -239,12 +239,14 @@ def render_stacked_coverage_chart(coverage: pd.DataFrame):
     label_width = 210
     bar_width = 660
     chart_height = 80 + row_height * len(coverage)
+    svg_font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+
     parts = [
-        f'<svg width="100%" height="{chart_height}" viewBox="0 0 {chart_width} {chart_height}" xmlns="http://www.w3.org/2000/svg">',
-        '<text x="0" y="22" font-size="16" font-weight="700" fill="#1f2430">Question Support by Artifact Status</text>',
-        '<rect x="0" y="38" width="16" height="12" fill="#2563eb" rx="2"/><text x="22" y="49" font-size="12" fill="#374151">Reusable / Resolved</text>',
-        '<rect x="170" y="38" width="16" height="12" fill="#f59e0b" rx="2"/><text x="192" y="49" font-size="12" fill="#374151">Stale / Expiring</text>',
-        '<rect x="330" y="38" width="16" height="12" fill="#ef4444" rx="2"/><text x="352" y="49" font-size="12" fill="#374151">Missing</text>',
+        f'''
+        <svg width="100%" height="{chart_height}" viewBox="0 0 {chart_width} {chart_height}"
+             xmlns="http://www.w3.org/2000/svg"
+             style="font-family: {svg_font};">
+        ''',
     ]
     y = 78
     for _, r in coverage.iterrows():
@@ -278,8 +280,14 @@ def render_vertical_artifact_chart(coverage: pd.DataFrame):
     max_val = max(max(totals.values()), 1)
     chart_width, chart_height = 540, 280
     baseline, max_bar_h, bar_w, gap, left = 210, 160, 70, 45, 55
+    svg_font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+
     parts = [
-        f'<svg width="100%" height="{chart_height}" viewBox="0 0 {chart_width} {chart_height}" xmlns="http://www.w3.org/2000/svg">',
+        f'''
+        <svg width="100%" height="{chart_height}" viewBox="0 0 {chart_width} {chart_height}"
+             xmlns="http://www.w3.org/2000/svg"
+             style="font-family: {svg_font};">
+        ''',
         '<text x="0" y="22" font-size="16" font-weight="700" fill="#1f2430">Artifact Status Distribution</text>',
         f'<line x1="35" y1="{baseline}" x2="{chart_width-30}" y2="{baseline}" stroke="#d1d5db"/>',
     ]
@@ -497,15 +505,13 @@ with tab_overview:
         m4.metric("Artifacts Needing Request", open_count)
 
         st.write("")
-        chart_col1, chart_col2 = st.columns([2, 1])
-        with chart_col1:
-            st.markdown('<div class="card">', unsafe_allow_html=True)
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
             render_stacked_coverage_chart(coverage)
-            st.markdown('</div>', unsafe_allow_html=True)
-        with chart_col2:
-            st.markdown('<div class="card">', unsafe_allow_html=True)
+        
+        with col2:
             render_vertical_artifact_chart(coverage)
-            st.markdown('</div>', unsafe_allow_html=True)
 
         st.write("")
         st.markdown("#### Coverage summaries")
