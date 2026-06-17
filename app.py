@@ -519,10 +519,29 @@ with tab_overview:
 
         st.write("")
         st.markdown("#### Coverage summaries")
-        for _, row in coverage.iterrows():
-            box_class = "success-box" if int(row["net_new_or_updated_artifacts"]) == 0 else "warn-box"
-            st.markdown(f'<div class="{box_class}">{build_dda_summary(row)}</div>', unsafe_allow_html=True)
-            st.write("")
+        
+        summary_cards = st.columns(3)
+        
+        for i, (_, row) in enumerate(coverage.iterrows()):
+            with summary_cards[i % 3]:
+                status = "Fully covered" if int(row["net_new_or_updated_artifacts"]) == 0 else "Needs request"
+                pill = status_badge("Reusable" if status == "Fully covered" else "Review")
+        
+                st.markdown(
+                    f"""
+        <div class="card-soft">
+          <div class="micro">{row['domain']}</div>
+          <h4 style="margin:.25rem 0;">{row['dda_name']}</h4>
+          <div class="muted">Triggered questions: {int(row['triggered_questions'])}</div>
+          <div class="muted">Historically answered: {int(row['historically_answered_questions'])}</div>
+          <div class="muted">Reusable artifacts: {int(row['reusable_artifacts'])}</div>
+          <div class="muted">Expiring / expired / missing: {int(row['expiring_artifacts'])} / {int(row['expired_artifacts'])} / {int(row['missing_artifacts'])}</div>
+          <div class="muted">Net-new or updated artifacts needed: {int(row['net_new_or_updated_artifacts'])}</div>
+          <div style="margin-top:10px;">{pill}</div>
+        </div>
+        """,
+                    unsafe_allow_html=True,
+                )
 
         st.markdown("#### Artifact status workbench")
         display_cols = [
